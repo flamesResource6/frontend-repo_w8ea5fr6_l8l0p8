@@ -1,0 +1,85 @@
+/*
+Theme Name: A.C. Digital Service
+Theme URI: https://acdigitalservice.it/
+Author: Flames.Blue
+Author URI: https://flames.blue/
+Description: Lightweight, clean, Core Web Vitals-friendly theme for A.C. DIGITAL SERVICE. No page builders, minimal JS, responsive layout, lazy-loaded media, WebP/AVIF support, JSON-LD schema, and Spline hero cover. Staging-ready and optimized for Aruba Hosting.
+Version: 1.0.0
+Requires at least: 6.3
+Tested up to: 6.6
+Requires PHP: 8.1
+License: GPLv2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: acdservice
+*/
+
+/* Base reset and typography */
+:root {
+  --bg: #0b0c0e;
+  --fg: #e8eaed;
+  --muted: #9aa0a6;
+  --accent: #00c2ff;
+  --card: #121417;
+  --border: #23262a;
+  --maxw: 1100px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+  text-rendering: optimizeLegibility;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: var(--fg); text-decoration: none; }
+a:hover { color: var(--accent); }
+.container { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 16px; }
+.header { position: sticky; top: 0; z-index: 50; background: rgba(11,12,14,0.7); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); }
+.nav { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; }
+.logo { display: flex; gap: 10px; align-items: center; font-weight: 700; letter-spacing: 0.3px; }
+.badge { font-size: 11px; padding: 2px 6px; border: 1px solid var(--border); border-radius: 999px; color: var(--muted); }
+.menu { display: flex; gap: 18px; }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 14px; border-radius: 10px; border: 1px solid var(--border); background: #121417; color: var(--fg); transition: transform .2s ease, background .2s ease; }
+.btn:hover { transform: translateY(-1px); background: #171a1e; }
+
+/* Hero */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 70vh;
+  min-height: 520px;
+  overflow: hidden;
+}
+.hero .overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(1200px 600px at 20% 20%, rgba(0,194,255,0.18), transparent 60%),
+              radial-gradient(900px 500px at 80% 30%, rgba(255,255,255,0.08), transparent 60%),
+              linear-gradient(180deg, rgba(11,12,14,0.2), rgba(11,12,14,0.9));
+  pointer-events: none;
+}
+.hero .content {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 0 16px;
+}
+.hero h1 { font-size: clamp(32px, 4.2vw, 56px); margin: 0 0 10px; letter-spacing: -0.02em; }
+.hero p { color: var(--muted); max-width: 740px; margin: 0 auto 24px; }
+
+/* Sections */
+.section { padding: 56px 0; border-top: 1px solid var(--border); background: var(--bg); }
+.card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 20px; }
+.grid { display: grid; gap: 16px; }
+.grid.cols-3 { grid-template-columns: repeat(3, minmax(0,1fr)); }
+.grid.cols-2 { grid-template-columns: repeat(2, minmax(0,1fr)); }
+@media (max-width: 900px){ .grid.cols-3 { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 640px){ .grid.cols-3, .grid.cols-2 { grid-template-columns: 1fr; } }
+
+.footer { padding: 40px 0; border-top: 1px solid var(--border); color: var(--muted); background: #0d0f12; }
+.small { font-size: 12px; color: var(--muted); }
